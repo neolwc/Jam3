@@ -1,0 +1,78 @@
+@import 'reset';
+@import '../node_modules/hamburgers/_sass/hamburgers/hamburgers';
+
+body {
+  height: 1000vh;
+  font-family: 'Lato', sans-serif;
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .center {
+    text-align: center;
+  }
+}
+header {
+  position: fixed;
+  width: 100%;
+  background: #333;
+  z-index: 1;
+  nav {
+    display: flex;
+    flex-direction: column;
+    height: 3rem;
+    transition: height 0.5s ease-in-out;
+    &.open {
+      height: 100vh;
+    }
+    .hamburger ~ a {
+      display: none;
+    }
+    .hamburger.is-active ~ a {
+      display: block;
+    }
+    @media only screen and (min-width: 768px) {
+      flex-direction: row;
+      justify-content: flex-end;
+      &.open {
+        height: initial;
+      }
+      .hamburger ~ a {
+        display: block;
+      }
+    }
+    a {
+      // flex: 0 1 10vh;
+      padding: 1rem 0;
+      text-transform: capitalize;
+      text-decoration: none;
+      transition: background 0.3s ease-in-out;
+      &, &:focus, &:visited {
+        color: #fff;
+      }
+      &:hover {
+        background: #666;
+      }
+      @media only screen and (min-width: 768px) {
+        flex: 0 1 6rem;
+      }
+    }
+  }
+}
+.hamburger {
+  text-align: right;
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+}
+.jumbotron {
+  position: relative;
+  top: 3rem;
+  width: 100%;
+  height: 400px;
+  background: url(placeholder.png) center;
+  background-size: cover;
+}
+
+@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 1024px) {}

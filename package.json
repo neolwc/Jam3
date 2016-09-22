@@ -16,6 +16,7 @@
     "gulp": "^3.9.1",
     "gulp-pug": "^3.0.4",
     "gulp-sass": "^2.3.2",
+    "hamburgers": "^0.5.0",
     "vinyl-source-stream": "^1.1.0"
   }
 }
