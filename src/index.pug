@@ -18,9 +18,23 @@ body
     section
       .jumbotron
     section#text
+      h1.center Text Block
       .container
-        h1.center Text Block
         p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
         p Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
         p Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibu
+    section#twitter
+      h1.center Twitter
+      .container
+        -
+          var user = {
+            "name": "Fabian Tjoe-A-On",
+            "screen_name": "fabiantjoe_a_on",
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/738128121887633408/iDnjnXW7.jpg"
+          }
+        - for (var i = 0; i < 5; i++)
+          .person
+            img(src=user.profile_image_url_https)
+            .name.center= user.name
+            .screen_name.center= '@' + user.screen_name
   script(src="bundle.js")

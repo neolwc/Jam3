@@ -9,9 +9,11 @@ $hamburger-hover-opacity: 0.7;
 $hamburger-hover-transition-duration: 0.3s;
 @import '../node_modules/hamburgers/_sass/hamburgers/hamburgers';
 
-$medium: 'only screen and (min-width: 768px)';
+$medium: 'only screen and (min-width: 480px)';
+$large: 'only screen and (min-width: 1024px)';
 
 body {
+  box-sizing: border-box;
   font-family: 'Lato', sans-serif;
   .container {
     width: 90%;
@@ -95,5 +97,35 @@ section {
   p {
     line-height: 2rem;
     margin-bottom: 1rem;
+  }
+}
+#twitter > .container {
+  display: flex;
+  flex-direction: column;
+  // flex-flow: row wrap;
+  align-items: center;
+  @media #{$medium} {
+    flex-flow: row wrap;
+  }
+  @media #{$large} {
+    width: 95%;
+    justify-content: space-between;
+  }
+}
+.person {
+  width: 10rem;
+  margin: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 #D4D4D5,0 0 0 1px #D4D4D5;
+  img {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+  }
+  .name, .screen_name {
+    margin: 0.5rem 0;
+  }
+  .screen_name {
+    color: #666;
+    font-size: 0.8rem;
   }
 }
