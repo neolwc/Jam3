@@ -36,4 +36,17 @@ body
             img(src=user.profile_image_url_https)
             .name.center= user.name
             .screen_name.center= '@' + user.screen_name
+    section#carousel
+      h1.center Carousel
+    section#share
+      h1.center Share
+      img(src="placeholder.png")
+      button Share on Facebook
+    footer
+      .center
+        | Made by&nbsp;
+        a(href="http://wenchen.li/") Neo
+        | &nbsp;for&nbsp;
+        a(href="http://www.jam3.com/") Jam3
+        | &nbsp;- 2016
   script(src="bundle.js")
