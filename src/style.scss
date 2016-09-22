@@ -90,6 +90,12 @@ main {
   background-size: cover;
 }
 section {
+  &:not(.jumbotron) {
+    padding: 2rem 0 5rem;
+  }
+  &:nth-child(2n) {
+    background: #f5f5f5;
+  }
   h1 {
     font-size: 2rem;
     margin: 2rem 0;
