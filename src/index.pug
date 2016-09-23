@@ -38,6 +38,20 @@ body
             .screen_name.center= '@' + user.screen_name
     section#carousel
       h1.center Carousel
+      .container
+        .content
+          .box(data-current=0)
+            img
+            img
+            img
+          .box(data-current=1)
+            img
+            img
+            img
+        .left
+          .arrow
+        .right
+          .arrow
     section#share
       h1.center Share
       img(src="placeholder.png")
