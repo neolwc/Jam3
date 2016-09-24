@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Menu from './components/menu';
+import Jumbotron from './components/jumbotron';
 import Footer from './components/footer';
 
 class Root extends React.Component {
@@ -11,9 +12,12 @@ class Root extends React.Component {
         <header>
           <Menu list={['text', 'twitter', 'carousel', 'share']} />
         </header>
-        <footer>
-          <Footer />
-        </footer>
+        <main>
+          <Jumbotron imageURL="https://goo.gl/iGA0Ih" />
+          <footer>
+            <Footer />
+          </footer>
+        </main>
       </div>
     );
   }
