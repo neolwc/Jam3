@@ -7,12 +7,14 @@ import babelify from 'babelify';
 import browserify from 'browserify';
 import source from 'vinyl-source-stream';
 import browserSync from 'browser-sync';
+import notify from 'gulp-notify';
 
 let bs = browserSync.create();
 
 gulp.task('pug', () =>
   gulp.src('src/**/*.pug')
     .pipe(pug({pretty: true}))
+    .on("error", notify.onError((error) => error.message))
     .pipe(gulp.dest('dist'))
     .pipe(bs.stream({once: true}))
 );
@@ -27,6 +29,7 @@ gulp.task('sass', () =>
 gulp.task('bundle', () =>
   browserify('src/index.js', {transform: [babelify]})
     .bundle()
+    .on("error", notify.onError((error) => error.message))
     .pipe(source('bundle.js'))
     .pipe(gulp.dest('dist'))
     .pipe(bs.stream({once: true}))
