@@ -6,7 +6,9 @@ import Menu from './components/menu';
 class Root extends React.Component {
   render() {
     return (
-      <Menu list={['text', 'twitter', 'carousel', 'share']} />
+      <header>
+        <Menu list={['text', 'twitter', 'carousel', 'share']} />
+      </header>
     );
   }
 }
