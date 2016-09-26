@@ -9,7 +9,8 @@
     "hamburgers": "^0.5.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-router": "^2.8.1"
+    "react-router": "^2.8.1",
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "browser-sync": "^2.16.0",
