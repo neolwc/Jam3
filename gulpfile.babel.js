@@ -14,20 +14,20 @@ import autoprefixer from 'gulp-autoprefixer';
 let bs = browserSync.create();
 
 gulp.task('build:js', ['bundle'], () =>
-  gulp.src('dist/**/*.js')
+  gulp.src('dist/bundle.js')
     .pipe(uglify())
     .pipe(gulp.dest('docs'))
 );
 
 gulp.task('build:css', () =>
-  gulp.src('src/**/*.scss')
+  gulp.src('src/style.scss')
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(autoprefixer())
     .pipe(gulp.dest('docs'))
 );
 
 gulp.task('build', ['build:js', 'build:css', 'pug'], () =>
-  gulp.src('dist/**/*.html')
+  gulp.src('dist/index.html')
     .pipe(gulp.dest('docs'))
 );
 
