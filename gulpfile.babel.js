@@ -57,8 +57,8 @@ gulp.task('bundle', () =>
 
 gulp.task('default', ['pug', 'sass', 'bundle'], () => {
   bs.init({
-    host: process.env.IP,
-    port: process.env.PORT,
+    host: process.env.IP || null,
+    port: process.env.PORT || 3000,
     server: 'dist'
   });
 
