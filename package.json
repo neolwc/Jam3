@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "build": "NODE_ENV=production gulp build",
     "start": "gulp"
   },
   "dependencies": {
@@ -8,14 +9,17 @@
     "babelify": "^7.3.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-router": "^2.8.1"
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "browser-sync": "^2.16.0",
     "browserify": "^13.1.0",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-notify": "^2.2.0",
     "gulp-pug": "^3.0.4",
     "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
     "vinyl-source-stream": "^1.1.0"
   }
 }

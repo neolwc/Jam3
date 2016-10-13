@@ -7,12 +7,34 @@ import babelify from 'babelify';
 import browserify from 'browserify';
 import source from 'vinyl-source-stream';
 import browserSync from 'browser-sync';
+import notify from 'gulp-notify';
+import uglify from 'gulp-uglify';
+import autoprefixer from 'gulp-autoprefixer';
 
 let bs = browserSync.create();
+
+gulp.task('build:js', ['bundle'], () =>
+  gulp.src('dist/bundle.js')
+    .pipe(uglify())
+    .pipe(gulp.dest('docs'))
+);
+
+gulp.task('build:css', () =>
+  gulp.src('src/style.scss')
+    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(autoprefixer())
+    .pipe(gulp.dest('docs'))
+);
+
+gulp.task('build', ['build:js', 'build:css', 'pug'], () =>
+  gulp.src('dist/index.html')
+    .pipe(gulp.dest('docs'))
+);
 
 gulp.task('pug', () =>
   gulp.src('src/**/*.pug')
     .pipe(pug({pretty: true}))
+    .on("error", notify.onError((error) => error.message))
     .pipe(gulp.dest('dist'))
     .pipe(bs.stream({once: true}))
 );
@@ -27,6 +49,7 @@ gulp.task('sass', () =>
 gulp.task('bundle', () =>
   browserify('src/index.js', {transform: [babelify]})
     .bundle()
+    .on("error", notify.onError((error) => error.message))
     .pipe(source('bundle.js'))
     .pipe(gulp.dest('dist'))
     .pipe(bs.stream({once: true}))
@@ -34,8 +57,8 @@ gulp.task('bundle', () =>
 
 gulp.task('default', ['pug', 'sass', 'bundle'], () => {
   bs.init({
-    host: process.env.IP,
-    port: process.env.PORT,
+    host: process.env.IP || null,
+    port: process.env.PORT || 3000,
     server: 'dist'
   });
 
