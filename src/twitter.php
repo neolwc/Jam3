@@ -27,3 +27,5 @@ if ($err) {
   header("Access-Control-Allow-Origin: *");
   echo $response;
 }
+
+?>
